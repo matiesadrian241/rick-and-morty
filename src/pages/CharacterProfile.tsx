@@ -1,12 +1,18 @@
 import React from "react";
+import { useParams, Link } from "react-router-dom";
+import CharacterDetails from "../components/CharacterDetails/CharacterDetails";
 import withLayout from "../components/Layout/Layout";
+import { CharacterDetailsPageWrapper } from "../components/CharacterDetailsPageComponents/CharacterDetailsPageComponents.style";
 
-export interface ICharacterProfileProps {}
+const Profile: React.FunctionComponent = () => {
+  const { id } = useParams();
 
-const CharacterProfile: React.FunctionComponent<
-  ICharacterProfileProps
-> = () => {
-  return <div>CHARACTER PROFILE</div>;
+  return (
+    <CharacterDetailsPageWrapper>
+      <Link to="/characters">Go back </Link>
+      <CharacterDetails characterId={id} />
+    </CharacterDetailsPageWrapper>
+  );
 };
 
-export default withLayout(CharacterProfile);
+export default withLayout(Profile);

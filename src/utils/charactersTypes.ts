@@ -71,3 +71,7 @@ export type CharactersPayload = {
 export type JSON = {
   [key: string]: string;
 };
+
+export type CharacterDetailsPageType = {
+  characterId?: string;
+};

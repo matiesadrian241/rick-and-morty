@@ -9,7 +9,7 @@ const Application: React.FunctionComponent = () => {
     <BrowserRouter>
       <Routes>
         <Route path="characters" element={<Characters />} />
-        <Route path="/characters/:number" element={<Profile />} />
+        <Route path="/characters/:id" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
