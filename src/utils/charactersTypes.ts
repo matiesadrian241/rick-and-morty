@@ -53,3 +53,10 @@ type PayloadCharacterType = {
   type?: string;
   url?: string;
 };
+
+export type CharacterCardProps = {
+  image?: string;
+  name?: string;
+  status?: string;
+  id?: number;
+};
