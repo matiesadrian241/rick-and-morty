@@ -3,6 +3,8 @@ import {
   getCharacters,
   setSearchedValue,
   setSearchedCharacterStatus,
+  increment,
+  decrement,
 } from "./actions";
 import {
   CharactersResultList,
@@ -75,6 +77,12 @@ export const charactersReducer = createReducer(
       })
       .addCase(setSearchedCharacterStatus, (state, { payload }) => {
         state.searchedCharacterStatus = payload;
+      })
+      .addCase(increment, (state) => {
+        state.currentPageNumber++;
+      })
+      .addCase(decrement, (state) => {
+        state.currentPageNumber--;
       });
   }
 );

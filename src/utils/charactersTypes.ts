@@ -65,6 +65,7 @@ export type CharacterCardProps = {
 export type CharactersPayload = {
   searchedValue: string;
   searchedCharacterStatus: string;
+  currentPageNumber: number;
 };
 
 export type JSON = {

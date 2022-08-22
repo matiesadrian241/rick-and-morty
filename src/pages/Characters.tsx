@@ -5,6 +5,7 @@ import { getCharacters, charactersSelector } from "../features/characters";
 import CharactersGrid from "../components/CharactersGrid";
 import SearchBar from "../components/SearchBar";
 import DropdownMenu from "../components/DropdownMenu";
+import NavBar from "../components/NavBar";
 import {
   CharactersPageWrapper,
   SearchContainer,
@@ -15,11 +16,17 @@ export interface ICharactersProps {}
 const Characters: React.FunctionComponent<ICharactersProps> = () => {
   const dispatch = useAppDispatch();
 
-  const { searchedValue, searchedCharacterStatus } =
+  const { searchedValue, searchedCharacterStatus, currentPageNumber } =
     useAppSelector(charactersSelector) || {};
   useEffect(() => {
-    dispatch(getCharacters({ searchedValue, searchedCharacterStatus }));
-  }, [dispatch, searchedValue, searchedCharacterStatus]);
+    dispatch(
+      getCharacters({
+        searchedValue,
+        searchedCharacterStatus,
+        currentPageNumber,
+      })
+    );
+  }, [dispatch, searchedValue, searchedCharacterStatus, currentPageNumber]);
 
   return (
     <CharactersPageWrapper>
@@ -28,6 +35,7 @@ const Characters: React.FunctionComponent<ICharactersProps> = () => {
         <DropdownMenu />
       </SearchContainer>
       <CharactersGrid />
+      <NavBar />
     </CharactersPageWrapper>
   );
 };
