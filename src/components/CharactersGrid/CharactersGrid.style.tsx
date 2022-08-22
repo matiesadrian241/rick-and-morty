@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const CharactersGridContainer = styled.div`
   display: grid;
-  max-width: 1000px;
-  grid-template-columns: repeat(auto-fit, 200px);
+  max-width: 1300px;
+  grid-template-columns: repeat(auto-fit, 220px);
   align-items: center;
   justify-content: center;
-  margin: 25px auto 0;
+  margin: 0px auto;
+  grid-gap: 30px;
 `;

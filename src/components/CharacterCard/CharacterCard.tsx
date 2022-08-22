@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  Box,
+  CharacterCardWrapper,
   ProfilePicture,
   DataContainer,
   CharacterDetailsWrapper,
@@ -17,7 +17,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 }) => {
   return (
     <Link to={`${id}`}>
-      <Box>
+      <CharacterCardWrapper>
         <DataContainer>
           <ProfilePicture src={image} />
           <CharacterDetailsWrapper>
@@ -25,7 +25,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             <CharacterStatus>{status}</CharacterStatus>
           </CharacterDetailsWrapper>
         </DataContainer>
-      </Box>
+      </CharacterCardWrapper>
     </Link>
   );
 };
