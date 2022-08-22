@@ -34,6 +34,7 @@ export type CharacterSearchPageState = {
   charactersFound: number;
   nextPageUrl: string;
   searchedValue: string;
+  searchedCharacterStatus: string;
   previousPageUrl: string;
   pending: boolean;
   error: boolean;
@@ -63,4 +64,9 @@ export type CharacterCardProps = {
 
 export type CharactersPayload = {
   searchedValue: string;
+  searchedCharacterStatus: string;
+};
+
+export type JSON = {
+  [key: string]: string;
 };

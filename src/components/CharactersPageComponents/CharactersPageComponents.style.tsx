@@ -5,6 +5,12 @@ export const CharactersPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0px auto;
-  grid-gap: 30px;
+`;
+export const SearchContainer = styled.div`
+  width: 640px;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: space-between;
+  margin: 30px 0;
 `;

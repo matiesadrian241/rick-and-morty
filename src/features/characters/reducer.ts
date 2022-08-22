@@ -1,5 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getCharacters, setSearchedValue } from "./actions";
+import {
+  getCharacters,
+  setSearchedValue,
+  setSearchedCharacterStatus,
+} from "./actions";
 import {
   CharactersResultList,
   CharacterType,
@@ -14,6 +18,7 @@ const charactersInitialState: CharacterSearchPageState = {
   charactersFound: 0,
   previousPageUrl: "",
   searchedValue: "",
+  searchedCharacterStatus: "",
   nextPageUrl: "",
   pending: false,
   error: false,
@@ -59,11 +64,17 @@ export const charactersReducer = createReducer(
         state.pending = false;
       })
       .addCase(getCharacters.rejected, (state) => {
+        state.charactersList = [];
+        state.totalCharacters = 0;
+        state.charactersFound = 0;
         state.pending = false;
         state.error = true;
       })
       .addCase(setSearchedValue, (state, { payload }) => {
         state.searchedValue = payload;
+      })
+      .addCase(setSearchedCharacterStatus, (state, { payload }) => {
+        state.searchedCharacterStatus = payload;
       });
   }
 );
