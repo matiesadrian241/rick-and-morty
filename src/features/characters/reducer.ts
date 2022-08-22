@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getCharacters } from "./actions";
+import { getCharacters, setSearchedValue } from "./actions";
 import {
   CharactersResultList,
   CharacterType,
@@ -61,6 +61,9 @@ export const charactersReducer = createReducer(
       .addCase(getCharacters.rejected, (state) => {
         state.pending = false;
         state.error = true;
+      })
+      .addCase(setSearchedValue, (state, { payload }) => {
+        state.searchedValue = payload;
       });
   }
 );

@@ -60,3 +60,7 @@ export type CharacterCardProps = {
   status?: string;
   id?: number;
 };
+
+export type CharactersPayload = {
+  searchedValue: string;
+};
