@@ -1,4 +1,5 @@
 import React from "react";
+import withLayout from "../components/Layout/Layout";
 
 export interface ICharacterProfileProps {}
 
@@ -8,4 +9,4 @@ const CharacterProfile: React.FunctionComponent<
   return <div>CHARACTER PROFILE</div>;
 };
 
-export default CharacterProfile;
+export default withLayout(CharacterProfile);
