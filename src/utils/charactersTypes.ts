@@ -73,5 +73,5 @@ export type JSON = {
 };
 
 export type CharacterDetailsPageType = {
-  characterId?: string;
+  characterId: number;
 };

@@ -5,7 +5,8 @@ import withLayout from "../components/Layout/Layout";
 import { CharacterDetailsPageWrapper } from "../components/CharacterDetailsPageComponents/CharacterDetailsPageComponents.style";
 
 const Profile: React.FunctionComponent = () => {
-  const { id } = useParams();
+  //typescript can't destructure generic plain objects like {}
+  const { id } = useParams() as any;
 
   return (
     <CharacterDetailsPageWrapper>

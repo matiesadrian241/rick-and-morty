@@ -29,7 +29,7 @@ const charactersInitialState: CharacterSearchPageState = {
 const extractCharacterValues = (payload: CharactersResultList) => {
   return payload?.results?.map((item) => {
     const newItem = {
-      [item.id]: {
+      [item.id as number]: {
         name: item?.name ?? "",
         status: item?.status ?? "",
         species: item?.species ?? "",

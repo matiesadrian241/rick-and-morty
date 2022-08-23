@@ -7,3 +7,6 @@ export const charactersSelector = createSelector(
   selectCharacters,
   (state) => state
 );
+
+export const getCharacterById = (id: number) =>
+  createSelector(selectCharacters, (state) => [state?.charactersList[id]]);
