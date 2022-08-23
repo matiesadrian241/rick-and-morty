@@ -36,7 +36,7 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      {charactersFound === CHARACTERS_PER_PAGE_LIMIT ? (
+      {charactersFound > 0 && charactersFound <= CHARACTERS_PER_PAGE_LIMIT ? (
         <NavBarWrapper>
           <NavBarButton
             disabled={!previousPageUrl}
