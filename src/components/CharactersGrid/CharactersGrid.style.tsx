@@ -7,5 +7,5 @@ export const CharactersGridContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0px auto;
-  grid-gap: 30px;
+  grid-gap: 15px;
 `;

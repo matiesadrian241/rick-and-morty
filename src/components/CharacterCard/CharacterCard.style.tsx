@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CharacterCardWrapper = styled.div`
   width: 220px;
-  height: 220px;
+  height: 260px;
   background: #444444;
   border-radius: 6px;
   transition: 0.5s;
@@ -10,12 +10,14 @@ export const CharacterCardWrapper = styled.div`
 
 export const ProfilePicture = styled.img`
   width: 40%;
-  margin-top: 20px;
+  margin: 20px 0;
   border-radius: 50%;
   transition: 0.5s;
+
   &:hover {
-    width: 100%;
+    width: 260px;
     margin-top: 0;
+    overflow: hidden;
     border-radius: unset;
     border-radius: 6px;
   }
@@ -25,6 +27,8 @@ export const DataContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  position: relative;
   align-items: center;
 `;
 
@@ -35,8 +39,10 @@ export const CharacterDetailsWrapper = styled.div`
   align-items: center;
   text-decoration: none;
   color: white;
-  margin-top: 15px;
-  width: 90%;
+  border-radius: 6px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 `;
 
 export const CharacterName = styled.h4`
