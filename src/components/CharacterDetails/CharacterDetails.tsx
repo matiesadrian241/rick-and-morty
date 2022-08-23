@@ -17,7 +17,7 @@ import {
   DetailsAndEpisodesWrapper,
   GoBackButton,
 } from "./CharacterDetails.style";
-import { getCharacterById } from "../../features/characters";
+import { getCharacterById, episodesSelector } from "../../features/characters";
 import { CharacterDetailsPageType } from "../../utils/charactersTypes";
 
 /**
@@ -32,9 +32,8 @@ const CharacterDetails: React.FC<CharacterDetailsPageType> = memo((props) => {
    *  The second option would not be the best approach, as we already receive needed data on https://rickandmortyapi.com/api/character
    */
   const character = useAppSelector(getCharacterById(characterId)) || {};
-
-  const { episodes, name, gender, image, location, origin, species, status } =
-    character;
+  const { episodesList } = useAppSelector(episodesSelector) || {};
+  const { name, gender, image, location, origin, species, status } = character;
 
   return (
     <DetailsWrapper>
@@ -50,13 +49,10 @@ const CharacterDetails: React.FC<CharacterDetailsPageType> = memo((props) => {
           <SubsectionWrapper>
             <SubsectionHeader>Episodes:</SubsectionHeader>
             <EpisodesWrapper>
-              {Array.isArray(episodes) &&
-                episodes.length > 0 &&
-                episodes.map((episode: string, index: number) => {
+              {episodesList &&
+                Object.entries(episodesList).map(([key, value]) => {
                   return (
-                    <EpisodeItem key={`${episode}-${index}`}>
-                      {episode}
-                    </EpisodeItem>
+                    <EpisodeItem key={`${key}-${value}`}>{value}</EpisodeItem>
                   );
                 })}
             </EpisodesWrapper>

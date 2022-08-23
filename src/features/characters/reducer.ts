@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
   getCharacters,
+  getEpisodes,
   setSearchedValue,
   setSearchedCharacterStatus,
   increment,
@@ -10,6 +11,8 @@ import {
   CharactersResultList,
   CharacterType,
   CharacterSearchPageState,
+  EpisodesListState,
+  EpisodeElementType,
 } from "../../utils/charactersTypes";
 
 const charactersInitialState: CharacterSearchPageState = {
@@ -26,6 +29,12 @@ const charactersInitialState: CharacterSearchPageState = {
   error: false,
 };
 
+const episodesInitialState: EpisodesListState = {
+  episodesList: {} as Record<string, string>,
+  pending: false,
+  error: false,
+};
+
 /**
  * Method used to define the elements from charactersList, having the following type <Id of the character, Character Details>
  * This will further help us fetch specific character details from store based on character id
@@ -33,21 +42,58 @@ const charactersInitialState: CharacterSearchPageState = {
  * @returns a record of type <number, CharacterType>
  */
 const extractCharacterValues = (payload: CharactersResultList) => {
-  return payload?.results?.map((item) => {
+  if (payload && payload.results) {
+    const { results } = payload;
+    return results.map((item) => {
+      const newItem = {
+        [item.id as number]: {
+          name: item?.name ?? "",
+          status: item?.status ?? "",
+          species: item?.species ?? "",
+          episodes: extractEpisodeIds(item?.episode) ?? [],
+          gender: item?.gender ?? "",
+          image: item?.image ?? "",
+          location: item?.location?.name ?? "",
+          origin: item?.origin?.name ?? "",
+        },
+      };
+      return newItem;
+    });
+  }
+  return [];
+};
+
+//  As the episode list received on retrieve characters request is formed out of URLs, we should only store episodes ids in our store
+const extractEpisodeIds = (episode: Array<string>) => {
+  if (Array.isArray(episode) && episode.length > 0) {
+    return episode.map((episode: string) => {
+      return episode.split("/").pop() || "";
+    });
+  }
+
+  return [];
+};
+
+const extractEpisodeNames = (
+  payload: Array<EpisodeElementType> | EpisodeElementType
+) => {
+  if (Array.isArray(payload) && payload.length > 0) {
+    return payload.map((item) => {
+      const newItem = {
+        [item.id]: item?.name ?? "",
+      };
+
+      return newItem;
+    });
+  } else if (payload && typeof payload === "object") {
+    const episodeElement = payload as EpisodeElementType;
     const newItem = {
-      [item.id as number]: {
-        name: item?.name ?? "",
-        status: item?.status ?? "",
-        species: item?.species ?? "",
-        episodes: item?.episode ?? [],
-        gender: item?.gender ?? "",
-        image: item?.image ?? "",
-        location: item?.location?.name ?? "",
-        origin: item?.origin?.name ?? "",
-      },
+      [episodeElement?.id]: episodeElement?.name ?? "",
     };
-    return newItem;
-  });
+
+    return [newItem];
+  }
+  return [];
 };
 
 export const charactersReducer = createReducer(
@@ -89,6 +135,29 @@ export const charactersReducer = createReducer(
       })
       .addCase(decrement, (state) => {
         state.currentPageNumber--;
+      });
+  }
+);
+
+export const episodesReducer = createReducer(
+  episodesInitialState,
+  (builder) => {
+    builder
+      .addCase(getEpisodes.pending, (state) => {
+        state.pending = true;
+      })
+      .addCase(getEpisodes.fulfilled, (state, { payload }) => {
+        state.episodesList = extractEpisodeNames(payload).reduce(
+          (acc, item) => {
+            return { ...acc, ...item };
+          },
+          {}
+        );
+        state.pending = false;
+      })
+      .addCase(getEpisodes.rejected, (state) => {
+        state.pending = false;
+        state.error = true;
       });
   }
 );

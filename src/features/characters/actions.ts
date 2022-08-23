@@ -36,3 +36,17 @@ export const getCharacters = createAsyncThunk(
     return response.data;
   }
 );
+
+export const getEpisodes = createAsyncThunk(
+  "episodes",
+  async (payload: Array<string>) => {
+    const response = await axios
+      .get(`${process.env.REACT_APP_GET_EPISODES}/${payload.toString()}`)
+      .then((data) => data)
+      .catch((error) => {
+        throw error;
+      });
+
+    return response.data;
+  }
+);

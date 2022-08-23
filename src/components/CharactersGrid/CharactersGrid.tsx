@@ -21,7 +21,7 @@ const CharactersGrid: React.FC = () => {
           return (
             <CharacterCard
               key={`${key}-${character.name}`}
-              id={key}
+              id={parseInt(key)}
               {...character}
             />
           );

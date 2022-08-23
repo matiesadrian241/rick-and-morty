@@ -13,7 +13,7 @@ type NameAndURL = {
 type PayloadCharacterType = {
   created?: string;
   name?: string;
-  episode?: Array<string>;
+  episode: Array<string>;
   gender?: string;
   id: number;
   image?: string;
@@ -23,6 +23,16 @@ type PayloadCharacterType = {
   status?: string;
   type?: string;
   url?: string;
+};
+
+export type EpisodeElementType = {
+  id: number;
+  name?: string;
+  air_date?: string;
+  episode?: string;
+  characters?: Array<string>;
+  url?: string;
+  created?: string;
 };
 
 export type CharactersResultList = {
@@ -55,11 +65,17 @@ export type CharacterSearchPageState = {
   error: boolean;
 };
 
+export type EpisodesListState = {
+  episodesList: { [key: string]: string };
+  pending: boolean;
+  error: boolean;
+};
+
 export type CharacterCardProps = {
   image?: string;
   name?: string;
   status?: string;
-  id?: string;
+  id: number;
 };
 
 export type CharactersPayload = {

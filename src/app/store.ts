@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { charactersReducer } from "../features/characters";
+import { charactersReducer, episodesReducer } from "../features/characters";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
   characters: charactersReducer,
+  episodes: episodesReducer,
 });
 
 const persistConfig = {

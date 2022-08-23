@@ -19,7 +19,7 @@ const Characters: React.FunctionComponent<ICharactersProps> = () => {
   const { searchedValue, searchedCharacterStatus, currentPageNumber } =
     useAppSelector(charactersSelector) || {};
 
-  // Generate a new fetch character list API requests every time one of searchedValue, searchedCharacterStatus or currentPageNumber parameters change
+  // Generate a new fetch character API requests every time one of the following characters change: searchedValue, searchedCharacterStatus, currentPageNumber
   useEffect(() => {
     dispatch(
       getCharacters({

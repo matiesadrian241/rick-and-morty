@@ -2,9 +2,15 @@ import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export const selectCharacters = (state: RootState) => state?.characters;
+export const selectEpisodes = (state: RootState) => state?.episodes;
 
 export const charactersSelector = createSelector(
   selectCharacters,
+  (state) => state
+);
+
+export const episodesSelector = createSelector(
+  selectEpisodes,
   (state) => state
 );
 
