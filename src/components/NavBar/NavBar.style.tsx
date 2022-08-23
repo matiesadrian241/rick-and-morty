@@ -23,6 +23,7 @@ export const PageNumber = styled.div`
   text-align: center;
   font-size: 34px;
   vertical-align: middle;
+  color: white;
   width: 220px;
   height: 50px;
 `;
