@@ -6,6 +6,7 @@ type DisplayList = {
 
 export const DropdownWrapper = styled.div`
   position: relative;
+  z-index: 3;
 `;
 
 export const DropdownButton = styled.button`
@@ -53,6 +54,7 @@ export const DropdownItem = styled.li`
   text-align: center;
   &:hover {
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `;
 export const DropdownMenuText = styled.div`
