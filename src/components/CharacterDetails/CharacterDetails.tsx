@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import {
@@ -24,7 +24,7 @@ import { CharacterDetailsPageType } from "../../utils/charactersTypes";
  *  Component of character details page
  *  Receives data of type CharacterDetailsPageType
  */
-const CharacterDetails: React.FC<CharacterDetailsPageType> = (props) => {
+const CharacterDetails: React.FC<CharacterDetailsPageType> = memo((props) => {
   const { characterId } = props || {};
   /**
    *  We use getCharacterById selector with the help of characterId, received from Characters Page, to fetch data from redux store
@@ -77,6 +77,6 @@ const CharacterDetails: React.FC<CharacterDetailsPageType> = (props) => {
       </Link>
     </DetailsWrapper>
   );
-};
+});
 
 export default CharacterDetails;
