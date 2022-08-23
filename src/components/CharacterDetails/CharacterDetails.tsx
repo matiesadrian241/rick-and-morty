@@ -27,9 +27,8 @@ import { CharacterDetailsPageType } from "../../utils/charactersTypes";
 const CharacterDetails: React.FC<CharacterDetailsPageType> = memo((props) => {
   const { characterId } = props || {};
   /**
-   *  We use getCharacterById selector with the help of characterId, received from Characters Page, to fetch data from redux store
-   *  An alternative to this approach would be to make an API request to fetch character details, but it is not neccessary in our case
-   *  The second option would not be the best approach, as we already receive needed data on https://rickandmortyapi.com/api/character
+   *  We use getCharacterById selector in combination with characterId to fetch data from redux store
+   *  Episode names previously stored at card selection, are also retrieved and displayed as a list here
    */
   const character = useAppSelector(getCharacterById(characterId)) || {};
   const { episodesList } = useAppSelector(episodesSelector) || {};
