@@ -1,4 +1,4 @@
-import React, { useRef, useState, MouseEvent } from "react";
+import React, { useState, MouseEvent } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { setSearchedCharacterStatus } from "../../features/characters";
 import { JSON } from "../../utils/charactersTypes";
@@ -22,8 +22,6 @@ const DropdownMenu: React.FC = () => {
     UNKNOWN: "unknown",
     NONE: "",
   };
-
-  const dropdownRef = useRef(null);
 
   const dispatch = useAppDispatch();
 
@@ -51,7 +49,6 @@ const DropdownMenu: React.FC = () => {
         <DropdownMenuText>Character status</DropdownMenuText>
       </DropdownButton>
       <Nav
-        ref={dropdownRef}
         active={isActive}
         className={`menu-${isActive ? "active" : "inactive"}`}
       >
