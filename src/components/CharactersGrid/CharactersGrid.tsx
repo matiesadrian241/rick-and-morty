@@ -14,10 +14,8 @@ const CharactersGrid: React.FC = () => {
         return (
           <CharacterCard
             key={`${key}-${character.name}`}
-            image={character.image}
-            name={character.name}
-            status={character.status}
             id={parseInt(key)}
+            {...character}
           />
         );
       })}
