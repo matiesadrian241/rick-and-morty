@@ -75,3 +75,7 @@ export type JSON = {
 export type CharacterDetailsPageType = {
   characterId: number;
 };
+
+export type GenderType = {
+  gender?: string;
+};
