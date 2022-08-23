@@ -11,7 +11,6 @@ export const DetailsWrapper = styled.div`
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.3);
   width: 80%;
   max-width: 1500px;
-
   display: flex;
   margin: auto;
   margin-top: 30px;
@@ -48,7 +47,6 @@ export const HeaderWrapper = styled.div`
 
 export const CharacterGenderType = styled.div<GenderType>`
   ${({ gender }) => {
-    console.log(gender, "gender");
     if (gender) {
       return "background-color: " + json[gender] + ";";
     }
@@ -70,8 +68,11 @@ export const EpisodesWrapper = styled.ul`
   max-height: 370px;
   overflow: scroll;
 `;
+
 export const DetailItem = styled.li``;
+
 export const EpisodeItem = styled.li``;
+
 export const DetailList = styled.ul`
   margin-left: 20px;
   line-height: 40px;
@@ -80,10 +81,13 @@ export const DetailList = styled.ul`
   padding: 20px 50px;
   border-radius: 6px;
 `;
+
 export const SubsectionHeader = styled.h2`
   margin-left: 20px;
 `;
+
 export const SubsectionWrapper = styled.div``;
+
 export const DetailsAndEpisodesWrapper = styled.div`
   display: flex;
   justify-content: space-between;

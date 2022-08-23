@@ -10,19 +10,19 @@ export const DropdownWrapper = styled.div`
 `;
 
 export const DropdownButton = styled.button`
-  background: #ffffff;
-  border-radius: 6px;
   cursor: pointer;
+  width: 200px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #ffffff;
+  border-radius: 6px;
   padding: 4px 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   border: none;
   vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  width: 200px;
-  height: 50px;
+  transition: box-shadow 0.5s ease;
   opacity: 0.9;
   &:hover {
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -36,6 +36,7 @@ export const Nav = styled.nav<DisplayList>`
   width: 200px;
   height: 50px;
 `;
+
 export const DropdownList = styled.ul`
   list-style: none;
   background-color: #dddddd;
@@ -43,6 +44,7 @@ export const DropdownList = styled.ul`
   padding: 0;
   margin: 0;
 `;
+
 export const DropdownItem = styled.li`
   border-bottom: 1px solid white;
   text-decoration: none;
@@ -57,6 +59,7 @@ export const DropdownItem = styled.li`
     background-color: rgba(0, 0, 0, 0.2);
   }
 `;
+
 export const DropdownMenuText = styled.div`
   font-size: 20px;
   width: 100%;

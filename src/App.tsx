@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-
 import Characters from "./pages/Characters";
 import Profile from "./pages/CharacterProfile";
 

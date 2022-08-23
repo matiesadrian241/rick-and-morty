@@ -18,6 +18,7 @@ const Characters: React.FunctionComponent<ICharactersProps> = () => {
 
   const { searchedValue, searchedCharacterStatus, currentPageNumber } =
     useAppSelector(charactersSelector) || {};
+
   useEffect(() => {
     dispatch(
       getCharacters({

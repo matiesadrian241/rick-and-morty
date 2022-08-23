@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
 import {
   DetailsWrapper,
   ProfilePicture,
@@ -16,14 +18,13 @@ import {
   GoBackButton,
 } from "./CharacterDetails.style";
 import { getCharacterById } from "../../features/characters";
-import { useAppSelector } from "../../app/hooks";
-import { Link } from "react-router-dom";
 import { CharacterDetailsPageType } from "../../utils/charactersTypes";
 
 const CharacterDetails: React.FC<CharacterDetailsPageType> = (props) => {
   const { characterId } = props || {};
 
   const character = useAppSelector(getCharacterById(characterId)) || {};
+
   const { episodes, name, gender, image, location, origin, species, status } =
     character[0];
 

@@ -13,12 +13,9 @@ export const ProfilePicture = styled.img`
   margin: 20px 0;
   border-radius: 50%;
   transition: 0.5s;
-
   &:hover {
     width: 260px;
     margin-top: 0;
-    overflow: hidden;
-    border-radius: unset;
     border-radius: 6px;
   }
 `;

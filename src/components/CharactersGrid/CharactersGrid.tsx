@@ -3,8 +3,9 @@ import { charactersSelector } from "../../features/characters";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import { useAppSelector } from "../../app/hooks";
 
-const CharactersGrid = () => {
+const CharactersGrid: React.FC = () => {
   const charactersData = useAppSelector(charactersSelector) || {};
+
   const { charactersList } = charactersData;
 
   return (

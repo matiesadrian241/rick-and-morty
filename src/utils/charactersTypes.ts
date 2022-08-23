@@ -1,8 +1,3 @@
-export type CharactersResultList = {
-  results: Array<PayloadCharacterType>;
-  info: PageInfoType;
-};
-
 type PageInfoType = {
   count?: number;
   pages?: number;
@@ -13,6 +8,26 @@ type PageInfoType = {
 type NameAndURL = {
   name?: string;
   url?: string;
+};
+
+type PayloadCharacterType = {
+  created?: string;
+  name?: string;
+  episode?: Array<string>;
+  gender?: string;
+  id: number;
+  image?: string;
+  location?: NameAndURL;
+  origin?: NameAndURL;
+  species?: string;
+  status?: string;
+  type?: string;
+  url?: string;
+};
+
+export type CharactersResultList = {
+  results: Array<PayloadCharacterType>;
+  info: PageInfoType;
 };
 
 export type CharacterType = {
@@ -38,21 +53,6 @@ export type CharacterSearchPageState = {
   previousPageUrl: string;
   pending: boolean;
   error: boolean;
-};
-
-type PayloadCharacterType = {
-  created?: string;
-  name?: string;
-  episode?: Array<string>;
-  gender?: string;
-  id: number;
-  image?: string;
-  location?: NameAndURL;
-  origin?: NameAndURL;
-  species?: string;
-  status?: string;
-  type?: string;
-  url?: string;
 };
 
 export type CharacterCardProps = {

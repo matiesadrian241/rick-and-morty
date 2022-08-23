@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FC } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   charactersSelector,
@@ -18,7 +18,9 @@ import {
 
 const NavBar: React.FC = () => {
   const dispatch = useAppDispatch();
+
   const charactersData = useAppSelector(charactersSelector) || {};
+
   const {
     currentPageNumber,
     totalPages,
