@@ -11,18 +11,21 @@ const CharactersGrid: React.FC = () => {
   const charactersData = useAppSelector(charactersSelector) || {};
 
   const { charactersList } = charactersData;
+  const data = Object.entries(charactersList);
 
   return (
     <CharactersGridContainer>
-      {Object.entries(charactersList).map(([key, character]) => {
-        return (
-          <CharacterCard
-            key={`${key}-${character.name}`}
-            id={parseInt(key)}
-            {...character}
-          />
-        );
-      })}
+      {Array.isArray(data) &&
+        data.length > 0 &&
+        data.map(([key, character]) => {
+          return (
+            <CharacterCard
+              key={`${key}-${character.name}`}
+              id={key}
+              {...character}
+            />
+          );
+        })}
     </CharactersGridContainer>
   );
 };

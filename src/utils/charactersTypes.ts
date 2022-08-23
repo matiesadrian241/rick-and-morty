@@ -59,7 +59,7 @@ export type CharacterCardProps = {
   image?: string;
   name?: string;
   status?: string;
-  id?: number;
+  id?: string;
 };
 
 export type CharactersPayload = {
