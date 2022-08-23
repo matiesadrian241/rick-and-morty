@@ -5,7 +5,10 @@ import {
   increment,
   decrement,
 } from "../../features/characters";
-import { CHARACTERS_PER_PAGE_LIMIT } from "../../utils/constants";
+import {
+  CHARACTERS_PER_PAGE_LIMIT,
+  NO_CHARACTERS,
+} from "../../utils/constants";
 import {
   NavBarButton,
   PageNumber,
@@ -45,7 +48,9 @@ const NavBar: React.FC = () => {
           </NavBarButton>
         </NavBarWrapper>
       ) : (
-        <NavBarNoResults>Oups.. no characters found</NavBarNoResults>
+        charactersFound === NO_CHARACTERS && (
+          <NavBarNoResults>Oups.. no characters found</NavBarNoResults>
+        )
       )}
     </>
   );
