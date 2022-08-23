@@ -20,9 +20,17 @@ import {
 import { getCharacterById } from "../../features/characters";
 import { CharacterDetailsPageType } from "../../utils/charactersTypes";
 
+/**
+ *  Component of character details page
+ *  Receives data of type CharacterDetailsPageType
+ */
 const CharacterDetails: React.FC<CharacterDetailsPageType> = (props) => {
   const { characterId } = props || {};
-
+  /**
+   *  We use getCharacterById selector with the help of characterId, received from Characters Page, to fetch data from redux store
+   *  An alternative to this approach would be to make an API request to fetch character details, but it is not neccessary in our case
+   *  The second option would not be the best approach, as we already receive needed data on https://rickandmortyapi.com/api/character
+   */
   const character = useAppSelector(getCharacterById(characterId)) || {};
 
   const { episodes, name, gender, image, location, origin, species, status } =

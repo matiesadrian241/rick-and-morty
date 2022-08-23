@@ -11,7 +11,11 @@ import {
   DropdownMenuText,
 } from "./DropdownMenu.style";
 
+/**
+ *  Statuses dropdown component used within Search Characters page for filtering purposes
+ */
 const DropdownMenu: React.FC = () => {
+  // List of entries inside dropdown
   const statuses: JSON = {
     ALIVE: "alive",
     DEAD: "dead",
@@ -23,13 +27,20 @@ const DropdownMenu: React.FC = () => {
 
   const dispatch = useAppDispatch();
 
+  // active/inactive state of the dropdown menu
   const [isActive, setIsActive] = useState(false);
 
+  // Sets active/inactive state when clicking on the dropdown component
   const onClick = () => setIsActive(!isActive);
 
+  /**
+   *  When clicking on an entry inside this dropdown, we should update the searchedCharacterStatus within redux store
+   *  This will further trigger another characters search API request
+   */
   const onItemClick = (event: MouseEvent<HTMLLIElement>) => {
     const selectedElement = event.target as HTMLElement;
 
+    // Close dropdown after selecting status
     setIsActive(!isActive);
     dispatch(setSearchedCharacterStatus(statuses[selectedElement.innerHTML]));
   };

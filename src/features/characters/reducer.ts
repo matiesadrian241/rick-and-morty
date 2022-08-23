@@ -26,6 +26,12 @@ const charactersInitialState: CharacterSearchPageState = {
   error: false,
 };
 
+/**
+ * Method used to define the elements from charactersList, having the following type <Id of the character, Character Details>
+ * This will further help us fetch specific character details from store based on character id
+ * @param payload of type CharactersResultList
+ * @returns a record of type <number, CharacterType>
+ */
 const extractCharacterValues = (payload: CharactersResultList) => {
   return payload?.results?.map((item) => {
     const newItem = {

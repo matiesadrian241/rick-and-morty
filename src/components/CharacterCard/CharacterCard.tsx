@@ -9,6 +9,10 @@ import {
 } from "./CharacterCard.style";
 import { CharacterCardProps } from "../../utils/charactersTypes";
 
+/**
+ *  Component of characters grid search page
+ *  Receives data of type CharacterCardProps
+ */
 const CharacterCard: React.FC<CharacterCardProps> = ({
   image,
   name,
