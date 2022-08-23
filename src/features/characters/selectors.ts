@@ -10,4 +10,4 @@ export const charactersSelector = createSelector(
 
 // Method which retrieves specific character details from store, based on character id
 export const getCharacterById = (id: number) =>
-  createSelector(selectCharacters, (state) => [state?.charactersList[id]]);
+  createSelector(selectCharacters, (state) => state?.charactersList[id]);

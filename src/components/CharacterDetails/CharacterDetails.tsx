@@ -34,7 +34,7 @@ const CharacterDetails: React.FC<CharacterDetailsPageType> = (props) => {
   const character = useAppSelector(getCharacterById(characterId)) || {};
 
   const { episodes, name, gender, image, location, origin, species, status } =
-    character[0];
+    character;
 
   return (
     <DetailsWrapper>
