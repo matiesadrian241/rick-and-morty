@@ -54,7 +54,11 @@ const DropdownMenu: React.FC = () => {
       >
         <DropdownList>
           {Object.entries(statuses).map(([key]) => {
-            return <DropdownItem onClick={onItemClick}>{key}</DropdownItem>;
+            return (
+              <DropdownItem key={`${key}-dropdown-entry`} onClick={onItemClick}>
+                {key}
+              </DropdownItem>
+            );
           })}
         </DropdownList>
       </Nav>
